@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+    <table class="table table-success table-striped"> 
+        <thead>
+            <tr>
+            <th scope="col">&nbsp;ID</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in infos%}
+                <tr>
+                <th scope="row">&nbsp;{{info.id}}</th>
+                <td>&nbsp;{{info.first_name}}</td>
+                <td>{{info.last_name}}</td>
+                <td>{{info.email}}</td>
+                <td>+98{{info.phone_number}}&nbsp;</td>
+                <td>
+                    <a class="btn btn-warning" href="{{url_for('update_info',id=info.id)}}" role="button">Update</a>
+                    <button class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                    
+                </td>
+                </tr>
+            {% endfor %}
+              
+        </tbody>
+    </tabel> 
+    <div scope="col"><a class="btn btn-primary position-relative mb-2" href="{{url_for('info_add')}}" role="button">Add new info</a></div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Delete info?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+ 
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              {% for info in infos%}
+              <form action ="{{url_for('delete_info', id=info.id)}}" method="POST">
+              {% endfor %}
+                  <input  class ='btn btn-danger' type="submit" value='Delete'>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>   
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

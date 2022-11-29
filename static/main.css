@@ -1,0 +1,26 @@
+
+body {
+    background-color:green !important;
+}
+
+
+
+
+.content-section {
+    background: lightgreen;
+    padding: 10px 20px;
+    border: 1px solid #0f0000;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.color-new {
+    font-size: xx-large;
+}
+.color-back {
+    color: #0f0000 ;
+    font-size: larger;
+}
